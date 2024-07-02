@@ -2,6 +2,7 @@ package com.example.jetpackcompose
 
 import android.os.Bundle
 import android.provider.CalendarContract.Colors
+import android.util.Log
 import android.widget.GridLayout.Alignment
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -14,7 +15,11 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldColors
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -32,47 +37,75 @@ class MainActivity : ComponentActivity() {
 
         setContent {
 
-            Text(text = "Hello Swapnil")
-            saySomething()
+            textInput()
         }
     }
 }
 
-@Preview(showBackground = true, showSystemUi = true)
+@Preview(showBackground = true, widthDp = 300, heightDp = 500)
 @Composable
-fun saySomething(name: String = "I am doing better") {
-    Text(
-        text = " HI $name",
-        fontStyle = FontStyle.Italic,
-        fontWeight = FontWeight.ExtraBold,
-        color = Color.Red,
-        fontSize = 30.sp,
-        textAlign = TextAlign.Center
-    )
+private fun textFieldFunction() {
 
-    Button(
-        onClick = { },
-        colors = ButtonDefaults.buttonColors(
-            contentColor = Color.Red
+    TextField(value = "Hello Swap", onValueChange = {},
+        label = { Text(text = "Enter Message") },
+        placeholder = {})
 
-            ),
-
-        ) {
-        Text(text = "Helllo")
-
-
-    }
-
-    // img Composable
-
-//    Image(
-//        painter = painterResource(id = R.drawable.ic_launcher_background),
-//        contentDescription = "this Img",
-//        ContentScale = ContentScale.Crop
-//
-//    )
 
 }
+
+@Composable
+fun textInput() {
+    val state = remember {
+
+         mutableStateOf("")
+    }
+    TextField(
+        value = state.value,
+        onValueChange = {
+            state.value = it
+        },
+        label = { Text(text = "Enter Message") }
+
+    )
+
+}
+
+//
+//@Preview(showBackground = true, showSystemUi = true)
+//@Composable
+//fun saySomething(name: String = "I am doing better") {
+//    Text(
+//        text = " HI $name",
+//        fontStyle = FontStyle.Italic,
+//        fontWeight = FontWeight.ExtraBold,
+//        color = Color.Red,
+//        fontSize = 30.sp,
+//        textAlign = TextAlign.Center
+//    )
+//
+//    Button(
+//        onClick = { },
+//        colors = ButtonDefaults.buttonColors(
+//            contentColor = Color.Red
+//
+//            ),
+//
+//        ) {
+//        Text(text = "Helllo")
+//
+//
+//    }
+//
+//    // img Composable
+//
+////    Image(
+////        painter = painterResource(id = R.drawable.ic_launcher_background),
+////        contentDescription = "this Img",
+////        ContentScale = ContentScale.Crop
+////
+////    )
+//
+//}
 
 
 
