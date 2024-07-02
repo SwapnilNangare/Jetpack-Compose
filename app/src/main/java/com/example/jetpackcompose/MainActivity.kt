@@ -1,12 +1,16 @@
 package com.example.jetpackcompose
 
 import android.os.Bundle
+import android.provider.CalendarContract.Colors
 import android.widget.GridLayout.Alignment
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -29,18 +33,12 @@ class MainActivity : ComponentActivity() {
         setContent {
 
             Text(text = "Hello Swapnil")
-
+            saySomething()
         }
     }
 }
 
-@Preview(
-    showBackground = true,
-    name = "Hello Message",
-    showSystemUi = true,
-    widthDp = 200,
-    heightDp = 200
-)
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun saySomething(name: String = "I am doing better") {
     Text(
@@ -51,6 +49,19 @@ fun saySomething(name: String = "I am doing better") {
         fontSize = 30.sp,
         textAlign = TextAlign.Center
     )
+
+    Button(
+        onClick = { },
+        colors = ButtonDefaults.buttonColors(
+            contentColor = Color.Red
+
+            ),
+
+        ) {
+        Text(text = "Helllo")
+
+
+    }
 
     // img Composable
 
