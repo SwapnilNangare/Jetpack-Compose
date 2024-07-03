@@ -115,6 +115,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 private fun PreviewFunction() {
 
+
     Column(verticalArrangement = Arrangement.SpaceBetween) {
         Text(text = "A", fontSize = 24.sp)
         Text(text = "B", fontSize = 24.sp)
