@@ -14,6 +14,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
@@ -32,6 +34,7 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.jetpackcompose.ui.theme.JetpackComposeTheme
 
@@ -116,21 +119,63 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true, widthDp = 300, heightDp = 500)
 @Composable
 private fun PreviewFunction() {
-//    Column(
-//        verticalArrangement = Arrangement.SpaceEvenly,
-//        horizontalAlignment = Alignment.CenterHorizontally
-//    ) {
-//        Text(text = "A", fontSize = 24.sp)
-//        Text(text = "B", fontSize = 24.sp)
-//    }
+    /* Column(
+        verticalArrangement = Arrangement.SpaceEvenly,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(text = "A", fontSize = 24.sp)
+        Text(text = "B", fontSize = 24.sp)
+    }
 
-//    Row(
-//        horizontalArrangement = Arrangement.SpaceBetween,
-//        verticalAlignment = Alignment.CenterVertically
-//    ) {
-//        Text(text = "AA", fontSize = 25.sp)
-//        Text(text = "BB", fontSize = 25.sp)
-//    }
+    Row(
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(text = "AA", fontSize = 25.sp)
+        Text(text = "BB", fontSize = 25.sp)
+    }
+
+
+ Box(contentAlignment = androidx.compose.ui.Alignment.Center) {
+        Image(
+            painter = painterResource(id = R.drawable.ic_launcher_background),
+            contentDescription = ""
+        )
+        Image(painter = painterResource(id = R.drawable.baseline_123_24), contentDescription = "")
+
+    }
+
+ */
+    Column {
+        ListViewItem(R.drawable.baseline_123_24, "Swapnil", "Software Developer")
+        ListViewItem(R.drawable.baseline_123_24, "Sagar", "Tech Lead")
+        ListViewItem(R.drawable.baseline_123_24, "Madhav", "Software Tester")
+        ListViewItem(R.drawable.baseline_123_24, "Rama", "CTO")
+        ListViewItem(R.drawable.baseline_123_24, "Komal", "CEO")
+        ListViewItem(R.drawable.baseline_123_24, "Payal", "Software Engineer")
+        ListViewItem(R.drawable.baseline_123_24, "Sakshi", "Software Developer")
+        ListViewItem(R.drawable.baseline_123_24, "Yash", "Technical Lead")
+
+    }
+
+}
+
+@Composable
+private fun ListViewItem(imgId: Int, name: String, occupation: String) {
+
+    Row(Modifier.padding(8.dp)) {
+
+        Image(
+            painter = painterResource(id = imgId),
+            contentDescription = "",
+            Modifier.size(50.dp)
+        )
+
+        Column() {
+            Text(text = name, fontWeight = FontWeight.Bold)
+            Text(text = occupation, fontWeight = FontWeight.Thin, fontSize = 12.sp)
+        }
+    }
 
 
 }
