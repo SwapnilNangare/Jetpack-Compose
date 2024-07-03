@@ -7,7 +7,9 @@ import android.widget.GridLayout.Alignment
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Button
@@ -37,38 +39,38 @@ class MainActivity : ComponentActivity() {
 
         setContent {
 
-            textInput()
+            PreviewFunction()
         }
     }
 }
 
-@Preview(showBackground = true, widthDp = 300, heightDp = 500)
-@Composable
-private fun textFieldFunction() {
+//@Preview(showBackground = true, widthDp = 300, heightDp = 500)
+//@Composable
+//private fun textFieldFunction() {
+//
+//    TextField(value = "Hello Swap", onValueChange = {},
+//        label = { Text(text = "Enter Message") },
+//        placeholder = {})
+//
+//
+//}
 
-    TextField(value = "Hello Swap", onValueChange = {},
-        label = { Text(text = "Enter Message") },
-        placeholder = {})
-
-
-}
-
-@Composable
-fun textInput() {
-    val state = remember {
-
-         mutableStateOf("")
-    }
-    TextField(
-        value = state.value,
-        onValueChange = {
-            state.value = it
-        },
-        label = { Text(text = "Enter Message") }
-
-    )
-
-}
+//@Composable
+//fun textInput() {
+//    val state = remember {
+//
+//        mutableStateOf("")
+//    }
+//    TextField(
+//        value = state.value,
+//        onValueChange = {
+//            state.value = it
+//        },
+//        label = { Text(text = "Enter Message") }
+//
+//    )
+//
+//}
 
 //
 //@Preview(showBackground = true, showSystemUi = true)
@@ -106,6 +108,20 @@ fun textInput() {
 ////    )
 //
 //}
+
+//  Layout
+
+@Preview(showBackground = true, widthDp = 300, heightDp = 300)
+@Composable
+private fun PreviewFunction() {
+
+    Column(verticalArrangement = Arrangement.SpaceBetween) {
+        Text(text = "A", fontSize = 24.sp)
+        Text(text = "B", fontSize = 24.sp)
+    }
+
+
+}
 
 
 
