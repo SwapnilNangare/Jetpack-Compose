@@ -7,9 +7,11 @@ import android.widget.GridLayout.Alignment
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Button
@@ -111,15 +113,24 @@ class MainActivity : ComponentActivity() {
 
 //  Layout
 
-@Preview(showBackground = true, widthDp = 300, heightDp = 300)
+@Preview(showBackground = true, widthDp = 300, heightDp = 500)
 @Composable
 private fun PreviewFunction() {
+//    Column(
+//        verticalArrangement = Arrangement.SpaceEvenly,
+//        horizontalAlignment = Alignment.CenterHorizontally
+//    ) {
+//        Text(text = "A", fontSize = 24.sp)
+//        Text(text = "B", fontSize = 24.sp)
+//    }
 
-
-    Column(verticalArrangement = Arrangement.SpaceBetween) {
-        Text(text = "A", fontSize = 24.sp)
-        Text(text = "B", fontSize = 24.sp)
-    }
+//    Row(
+//        horizontalArrangement = Arrangement.SpaceBetween,
+//        verticalAlignment = Alignment.CenterVertically
+//    ) {
+//        Text(text = "AA", fontSize = 25.sp)
+//        Text(text = "BB", fontSize = 25.sp)
+//    }
 
 
 }
