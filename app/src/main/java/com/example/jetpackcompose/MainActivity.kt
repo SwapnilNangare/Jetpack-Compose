@@ -7,6 +7,9 @@ import android.widget.GridLayout.Alignment
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -16,6 +19,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
@@ -27,8 +31,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.ClipOp
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -44,7 +51,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
 
-            PreviewFunction()
+            CircularImage()
         }
     }
 }
@@ -145,7 +152,7 @@ private fun PreviewFunction() {
 
     }
 
- */
+
     Column {
         ListViewItem(R.drawable.baseline_123_24, "Swapnil", "Software Developer")
         ListViewItem(R.drawable.baseline_123_24, "Sagar", "Tech Lead")
@@ -157,6 +164,26 @@ private fun PreviewFunction() {
         ListViewItem(R.drawable.baseline_123_24, "Yash", "Technical Lead")
 
     }
+
+    */
+
+
+    // Modifiers
+
+    Text(
+        text = "Hello",
+        modifier = Modifier
+            .clickable { }
+            .background(Color.Blue)
+            .size(200.dp)
+            .padding(15.dp)
+            .border(4.dp, Color.Red)
+            .clip(CircleShape)
+            .background(Color.Yellow)
+
+
+    )
+
 
 }
 
@@ -177,6 +204,22 @@ private fun ListViewItem(imgId: Int, name: String, occupation: String) {
         }
     }
 
+
+}
+
+@Composable
+fun CircularImage() {
+    Image(
+        painter = painterResource(
+            id = R.drawable.ic_launcher_background
+        ),
+        contentScale = ContentScale.Crop,
+        modifier = Modifier
+            .size(80.dp)
+            .clip(CircleShape)
+            .border(2.dp, Color.Red, CircleShape),
+        contentDescription = ""
+    )
 
 }
 
