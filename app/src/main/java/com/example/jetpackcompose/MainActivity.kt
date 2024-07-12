@@ -51,7 +51,20 @@ class MainActivity : ComponentActivity() {
 
         setContent {
 
-            CircularImage()
+            //previewItem()
+            reComposable()
+        }
+    }
+
+    @Composable
+    private fun reComposable() {
+        val state = remember { mutableStateOf(0.0) }
+        Log.d("TAGGED", "Logged during Initial Composition")
+
+        Button(onClick = { state.value = Math.random() }) {
+            Log.d("TAGGED", "Logged during both Composition & Recomposition")
+            Text(text = state.value.toString())
+
         }
     }
 }

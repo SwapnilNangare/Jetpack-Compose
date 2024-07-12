@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
@@ -24,22 +26,27 @@ import androidx.compose.ui.unit.sp
 @Preview(heightDp = 500)
 @Composable
 fun previewItem() {
-//    BlogCategory(
-//        R.drawable.ic_launcher_background,
-//        "Swapnil Nangare",
-//        "Software Develope"
-//    )
 
-    Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
-        getCategoryList().map { item ->
 
-            BlogCategory(
-                item.img,
-                item.title,
-                item.subtitle
-            )
+//    Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
+//        getCategoryList().map { item ->
+//
+//            BlogCategory(
+//                item.img,
+//                item.title,
+//                item.subtitle
+//            )
+//        }
+//    }
+
+
+    LazyColumn(content = {
+        items(getCategoryList()) { item ->
+            BlogCategory(img = item.img, title = item.title, subtitle = item.subtitle)
+
         }
-    }
+    })
+
 
 }
 
