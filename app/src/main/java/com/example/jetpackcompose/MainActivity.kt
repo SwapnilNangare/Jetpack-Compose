@@ -52,7 +52,8 @@ class MainActivity : ComponentActivity() {
         setContent {
 
             //previewItem()
-            reComposable()
+          //  reComposable()
+            NotificationScreen()
         }
     }
 
